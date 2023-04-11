@@ -167,6 +167,34 @@ handleResetButton() {
     window.location.reload();
   });
 }
+
+showLeaderboard() {
+  var leader1, leader2; //lideres do primeiro e segundo lugar
+  var players = Object.values(allPlayers); //jogadores vai obter o valor de todos os jogadores
+  if((players[0].rank === 0) || players[0].rank === 1) {
+     //se o primeiro player e o segundo tiverem iniciado ou o primeiro tenha sido o vencedor
+     leader1 = //o primeiro liugar sera do primeiro jogador
+       players[0].rank +    "&emsp;" +    players[0].name +   "&emsp;" +      players[0].score;
+       
+     leader2 = //o segundo lugar sera do segundo jogador
+       players[1].rank +    "&emsp;" +    players[1].name +   "&emsp;" +      players[1].score;
+   }
+   
+   if (players[1].rank === 1) {//se o segundo jogador for o vencedor 
+     leader1 = //primeiro lugar é do segundo jogador
+       players[1].rank +     "&emsp;" +    players[1].name +   "&emsp;" +     players[1].score;
+       
+       
+     leader2 = //segundo lugar é do primeiro jogador
+         players[0].rank +    "&emsp;" +    players[0].name +   "&emsp;" +      players[0].score;
+    }
+    
+    
+    this.leader1.html(leader1);
+    this.leader2.html(leader2);
+    }
+    
+    
 handlePlayerControls() {
   if (keyIsDown(UP_ARROW)) {
     player.positionY += 10;
